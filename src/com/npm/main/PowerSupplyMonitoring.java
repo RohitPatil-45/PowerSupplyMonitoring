@@ -21,7 +21,7 @@ public class PowerSupplyMonitoring {
     public static final int THREAD_POOL_SIZE = 3;
 
     public static void main(String[] args) {
-
+        
         try {
             // Run the SNMP listener in a new thread
             Thread snmpThread = new Thread(() -> {

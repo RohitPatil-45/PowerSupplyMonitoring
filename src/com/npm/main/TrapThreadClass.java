@@ -40,7 +40,7 @@ public class TrapThreadClass implements Runnable {
 //            device_ip = device_ip.split("/")[0];
             String device_ip = "172.30.161.22";
             System.out.println("Device IP:" + device_ip);
-            String device_typeC = "POWER SUPPLY";
+            String device_typeC = "Power Supply";
 
             System.out.println("snmp trap received: " + command.toString());
             Timestamp trapReceivedTime = new Timestamp(System.currentTimeMillis());
@@ -135,8 +135,8 @@ public class TrapThreadClass implements Runnable {
 
                         SnmpTrapListener.updateTrapList.add(model);
 
-                        String currentAlarmStatus = SnmpTrapListener.alarmStatus.get(device_ip + "~" + trapValue);
-                        if (!currentAlarmStatus.equalsIgnoreCase(alarmStatus)) {
+                       // String currentAlarmStatus = SnmpTrapListener.alarmStatus.get(device_ip + "~" + trapValue);
+                        //if (!currentAlarmStatus.equalsIgnoreCase(alarmStatus)) {
 
                             EventLog event = new EventLog();
                             event.setDeviceId(device_ip);
@@ -146,14 +146,14 @@ public class TrapThreadClass implements Runnable {
                             event.setNetadminMsg(alarmName + " is " + (alarmStatus != null && alarmStatus.equals("1") ? "Active" : "Cleared"));
                             event.setServiceName(alarmName);
                             event.setSeverity(severity);
-                            event.setDevicetype(deviceType);
+                            event.setDevicetype(device_typeC);
                             event.setServiceId(trapValue);
                             event.setAlarmStatus(alarmStatus);
 
                             SnmpTrapListener.insertEventLogList.add(event);
-                            SnmpTrapListener.alarmStatus.put(device_ip + "~" + trapValue, alarmStatus);
+                         //   SnmpTrapListener.alarmStatus.put(device_ip + "~" + trapValue, alarmStatus);
 
-                        }
+                     //   }
 
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -233,11 +233,11 @@ public class TrapThreadClass implements Runnable {
                         SnmpTrapListener.updateTrapList.add(model);
 
                         System.out.println("Data:" + device_ip + "~" + trapValue + ":");
-                        System.out.println("SnmpTrapListener.alarmStatus value:" + SnmpTrapListener.alarmStatus.toString());
+                       // System.out.println("SnmpTrapListener.alarmStatus value:" + SnmpTrapListener.alarmStatus.toString());
 
-                        String currentAlarmStatus = SnmpTrapListener.alarmStatus.get(device_ip + "~" + trapValue);
-                        System.out.println("status:" + currentAlarmStatus + ":" + alarmStatus);
-                        if (!currentAlarmStatus.equalsIgnoreCase(alarmStatus)) {
+                      //  String currentAlarmStatus = SnmpTrapListener.alarmStatus.get(device_ip + "~" + trapValue);
+                        //System.out.println("status:" + currentAlarmStatus + ":" + alarmStatus);
+                       // if (!currentAlarmStatus.equalsIgnoreCase(alarmStatus)) {
 
                             EventLog event = new EventLog();
                             event.setDeviceId(device_ip);
@@ -247,14 +247,14 @@ public class TrapThreadClass implements Runnable {
                             event.setNetadminMsg(alarmName + " is " + (alarmStatus != null && alarmStatus.equals("1") ? "Active" : "Cleared"));
                             event.setServiceName(alarmName);
                             event.setSeverity(severity);
-                            event.setDevicetype(deviceType);
+                            event.setDevicetype(device_typeC);
                             event.setServiceId(trapValue);
                             event.setAlarmStatus(alarmStatus);
                             
                             SnmpTrapListener.insertEventLogList.add(event);
-                            SnmpTrapListener.alarmStatus.put(device_ip + "~" + trapValue, alarmStatus);
+                         //   SnmpTrapListener.alarmStatus.put(device_ip + "~" + trapValue, alarmStatus);
 
-                        }
+                     //   }
 
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -322,8 +322,8 @@ public class TrapThreadClass implements Runnable {
 
                         SnmpTrapListener.updateTrapList.add(model);
 
-                        String currentAlarmStatus = SnmpTrapListener.alarmStatus.get(device_ip + "~" + trapValue);
-                        if (!currentAlarmStatus.equalsIgnoreCase(alarmStatus)) {
+                      //  String currentAlarmStatus = SnmpTrapListener.alarmStatus.get(device_ip + "~" + trapValue);
+                      //  if (!currentAlarmStatus.equalsIgnoreCase(alarmStatus)) {
 
                             EventLog event = new EventLog();
                             event.setDeviceId(device_ip);
@@ -333,14 +333,14 @@ public class TrapThreadClass implements Runnable {
                             event.setNetadminMsg(alarmName + " is " + (alarmStatus != null && alarmStatus.equals("1") ? "Active" : "Cleared"));
                             event.setServiceName(alarmName);
                             event.setSeverity(severity);
-                            event.setDevicetype(deviceType);
+                            event.setDevicetype(device_typeC);
                             event.setServiceId(trapValue);
                             event.setAlarmStatus(alarmStatus);
 
                             SnmpTrapListener.insertEventLogList.add(event);
-                            SnmpTrapListener.alarmStatus.put(device_ip + "~" + trapValue, alarmStatus);
+                          //  SnmpTrapListener.alarmStatus.put(device_ip + "~" + trapValue, alarmStatus);
 
-                        }
+                     //   }
 
                     } catch (Exception e) {
                         e.printStackTrace();
